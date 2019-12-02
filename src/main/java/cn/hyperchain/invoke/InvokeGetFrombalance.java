@@ -24,7 +24,7 @@ public class InvokeGetFrombalance implements BaseInvoke<Integer,ISBank> {
     }
 
     public static void test() {
-        System.out.println("输出数据");
+        System.out.println("输出数据进行测试。第三次测试");
     }
 
 
