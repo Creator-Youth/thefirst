@@ -23,5 +23,9 @@ public class InvokeGetFrombalance implements BaseInvoke<Integer,ISBank> {
         return baseContractInterface.getBalance("from");
     }
 
+    public static void test() {
+        System.out.println("输出数据");
+    }
+
 
 }
