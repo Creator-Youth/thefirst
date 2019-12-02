@@ -1,0 +1,8 @@
+cn/hyperchain/invoke/InvokeGetFrombalance.class
+cn/hyperchain/main/HVMConfig.class
+cn/hyperchain/invoke/InvokeTransfer.class
+cn/hyperchain/main/Task.class
+cn/hyperchain/contract/Bank.class
+cn/hyperchain/invoke/InvokeGetTobalance.class
+cn/hyperchain/contract/ISBank.class
+cn/hyperchain/main/Deploy.class

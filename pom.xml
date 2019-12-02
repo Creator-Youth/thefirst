@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>myfirst</groupId>
+    <artifactId>thefirst</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hyperchain</groupId>
+            <artifactId>litesdk</artifactId>
+            <version>0.0.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>nexus</name>
+            <url>http://172.16.4.1:8081/repository/hyperchain/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>${jar.classifier}</classifier>
+                            <includes>
+                                <!-- 合约包路径 aa/bb/cc -->
+                                <include>${contract.package.path}/**</include>
+                            </includes>
+                            <archive>
+                                <index>true</index>
+                                <manifest>
+                                    <!-- 合约实现类 -->
+                                    <mainClass>${contract.implement.class}</mainClass>
+                                </manifest>
+                            </archive>
+                            <outputDirectory>${basedir}/target/classes/contract/</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties><!--约定合约主体-->
+        <maven.test.skip>true</maven.test.skip>
+        <contract.package.path>/cn/hyperchain/contract</contract.package.path>
+        <contract.implement.class>cn.hyperchain.contract.Bank</contract.implement.class>
+        <jar.classifier>testhvm</jar.classifier>
+        <!-- 合约路径 -->
+    </properties>
+
+</project>
