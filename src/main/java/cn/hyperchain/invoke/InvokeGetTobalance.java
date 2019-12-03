@@ -8,6 +8,7 @@ public class InvokeGetTobalance implements BaseInvoke<Integer,ISBank>
 {
     @Override
     public Integer invoke(ISBank baseContractInterface) {
+        System.out.println("bug1 cnanged1");
         return baseContractInterface.getBalance("to");
     }
 }
