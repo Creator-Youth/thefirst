@@ -27,6 +27,7 @@ public class InvokeGetFrombalance implements BaseInvoke<Integer,ISBank> {
         System.out.println("输出数据进行测试。第si次测试");
         System.out.println("输出数据进行测试。第si次测试,在dev上做了测试。");
         System.out.println("输出数据进行测试。第si次测试,在bug1上做了测试。");
+        System.out.println("输出数据进行测试。第si次测试,在dev上做了测试,并未提交。");
     }
 
 
